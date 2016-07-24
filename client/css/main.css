@@ -1,0 +1,17 @@
+body {
+    background: #CCC;
+    color: navy; 
+}
+
+h1 {
+    text-align: center;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.texto {
+    font-size: 30px;
+    text-align: center;
+}

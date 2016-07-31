@@ -2,8 +2,8 @@ var express = require('./server/config/express')
     morgan  = require('morgan'),
     bodyParser = require('body-parser'),
     mongoose = require('./server/config/mongoose'),
+    passport =  require('./server/config/passport'),
     methodOverride = require('method-override'),
     db = mongoose(),
+    passport = passport(),
     app = express();
-
-

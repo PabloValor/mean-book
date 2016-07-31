@@ -1,5 +1,6 @@
 var express = require('express');
 var session = require('express-session');
+var passport = require('passport');
 var config = require('./env/' + (process.env.NODE_ENV || 'development'));
 
 module.exports = function() {
@@ -17,6 +18,10 @@ module.exports = function() {
     app.use(express.static('./client'));
     app.set('views', './server/views');
     app.set('view engine', 'ejs');
+
+    app.use(passport.initialize());
+    app.use(passport.session());
+
     app.use(morgan('combined'));
     if(process.env.NODE_ENV === 'development') {
 
@@ -26,6 +31,7 @@ module.exports = function() {
 
     console.log('Servidor corriendo en localhost:3000');
 
+    // Routes
     require('../routes/index')(app);
     require('../routes/user')(app);
 

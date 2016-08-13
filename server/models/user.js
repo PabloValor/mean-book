@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    cryto = require('crypto'),
+    crypto = require('crypto'),
     Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
@@ -38,7 +38,7 @@ var UserSchema = new Schema({
     }
 });
 
-UserSchema.virtual('fullname')
+UserSchema.virtual('fullName')
     .get(function(){
         return this.firstName + ' ' + this.lastName;
     })
@@ -61,7 +61,7 @@ UserSchema.methods.hashPassword = function(password) {
 };
 
 UserSchema.methods.authenticate = function(password) {
-    return this.password === password;
+    return this.password === this.hashPassword(password);
 };
 
 UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {

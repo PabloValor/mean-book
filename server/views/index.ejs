@@ -5,14 +5,12 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-	<h1><%= content  %></h1>
-	<p>Bienvenidos a mi primer sitio web</p>
-	<div class="text-center">
-		<img src="https://pbs.twimg.com/profile_images/498006663987601408/gF4SJw82_400x400.jpeg"/>
-	</div>
-    <p class="texto">En este sitio encontraras cosas</p>
-	<p><img class="img-responsive" src="#!" alt=""></p>
-	<a href="#!">{{main.event}}</a>
-	<a href="http://www.google.com">Ir a google</a>
+    <% if (userFullName) { %>
+        <h2>Hello <%= userFullName %></h2>
+        <a href="/signout">Signout</a>
+    <% } else {%>
+        <a href="/signup">Sign up</a>
+        <a href="/signin">Sign in</a>
+    <% }%>
 </body>
 </html>

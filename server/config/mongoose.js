@@ -5,7 +5,7 @@ module.exports = function() {
     var db = mongoose.connect(config.db);
 
     mongoose.connection.on('error', function(err){
-        console.err('Error DB: ' + err);
+        console.err('Error database: ' + err);
     });
 
     mongoose.connection.on('connected', function(){

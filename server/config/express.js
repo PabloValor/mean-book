@@ -1,6 +1,7 @@
 var express = require('express');
 var session = require('express-session');
 var passport = require('passport');
+var flash = require('connect-flash');
 var config = require('./env/' + (process.env.NODE_ENV || 'development'));
 
 module.exports = function() {
@@ -19,6 +20,7 @@ module.exports = function() {
     app.set('views', './server/views');
     app.set('view engine', 'ejs');
 
+    app.use(flash());
     app.use(passport.initialize());
     app.use(passport.session());
 
